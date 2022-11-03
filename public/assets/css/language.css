@@ -1,0 +1,11 @@
+#language_uz{
+    background-image: url('../../site/images/uzbekistan-flag.gif');
+    width: 100px;
+    border-radius: 50%;
+
+}
+.language_en{
+    background-image: url('../../site/images/english.png');
+    width: 100px;
+    border-radius: 50%;
+}

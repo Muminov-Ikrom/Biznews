@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="d-flex mb-4">
-    <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary ">Back</a>
+    <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">Back</a>
     <h2 class="m-3 mt-0 mb-0">Category create</h2>
 </div>
 

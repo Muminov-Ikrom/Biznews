@@ -27,12 +27,14 @@
             <tbody>
                 <tr>
                     <td>{{ $category->id }}</td>
-                    <td>{{$category->name_uz}}</td>
+{{--                    {{  $var === "hello" ? "Hi" : ($var ==="howdie ? "how" : "Goodbye") }}--}}
+                    
+                    <td>{{ isset($category->name_en) ? $category->name_en : "NULL" }}</td>
                     <td>{{$category->name_en}}</td>
                     <td>{{$category->slug}}</td>
-                    <td>{{$category->meta_title}}</td>
-                    <td>{{$category->meta_description}}</td>
-                    <td>{{$category->meta_keywords}}</td>
+                    <td>{{ isset($category->meta_title) ? $category->meta_title : "NULL"}}</td>
+                    <td>{{ isset($category->meta_description) ? $category->meta_description : "NULL" }}</td>
+                    <td>{{ isset($category->meta_keywords) ? $category->meta_keywords : "NULL" }}</td>
                     <td>{{$category->created_at}}</td>
                     <td>{{$category->updated_at}}</td>
                 </tr>

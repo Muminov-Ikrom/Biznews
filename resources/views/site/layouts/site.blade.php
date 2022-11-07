@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('site/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    @yield('url')
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('site/css/style.css') }}" rel="stylesheet">
@@ -244,6 +245,8 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('site/js/main.js') }}"></script>
+
+@yield('js')
 </body>
 
 </html>

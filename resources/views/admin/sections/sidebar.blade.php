@@ -17,7 +17,7 @@
 
             <ul class="nav-group-items">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('admin.categories.index') }}">
                         <span class="nav-icon"></span> Categories
                     </a>
                 </li>

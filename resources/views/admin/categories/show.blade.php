@@ -28,7 +28,6 @@
                 <tr>
                     <td>{{ $category->id }}</td>
 {{--                    {{  $var === "hello" ? "Hi" : ($var ==="howdie ? "how" : "Goodbye") }}--}}
-                    
                     <td>{{ isset($category->name_en) ? $category->name_en : "NULL" }}</td>
                     <td>{{$category->name_en}}</td>
                     <td>{{$category->slug}}</td>

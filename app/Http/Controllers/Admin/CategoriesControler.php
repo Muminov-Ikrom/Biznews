@@ -76,9 +76,9 @@ class CategoriesControler extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -88,9 +88,24 @@ class CategoriesControler extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $request->validate(
+            [
+                'name_uz'=>'required',
+                'name_en'=>'required',
+            ],
+            [
+                'name_uz.required'=>'Iltimos Name(Uz) ni to\'ldiring',
+                'name_en.required'=>'Iltimos Name (Eng) ni to\'ldiring',
+            ]
+        ) ;
+        $categories = $request->all();
+        $categories['slug'] = Str::slug($categories['name_en']);
+
+        $category->update($categories);
+
+        return redirect()->route('admin.categories.index')->with('success', 'Created category successfully!');
     }
 
     /**

@@ -3,12 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\TagService;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use Str;
 
 class TagsController extends Controller
 {
+    public $tagService;
+    public function __construct(TagService $tagService)
+    {
+        $this->tagService = $tagService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,18 +46,7 @@ class TagsController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name_uz'=>'required',
-            'name_en'=>'required',
-        ],[
-           'name_uz.required'=>'Iltimos Name(Uz) maydonini to\'ldiring',
-           'name_en.required'=>'Iltimos Name(Eng) maydonini to\'ldiring'
-        ]);
-
-        $tags = $request->all();
-
-        $tags['slug'] = Str::slug($tags['name_en']);
-        Tag::create($tags);
+        $this->tagService->store($request);
         return redirect()->route('admin.tags.index')->with('success', 'Tag created successfully!');
 
     }
@@ -86,19 +82,7 @@ class TagsController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        $request->validate([
-            'name_uz'=>'required',
-            'name_en'=>'required',
-        ],[
-            'name_uz.required'=>'Iltimos Name(Uz) maydonini to\'ldiring',
-            'name_en.required'=>'Iltimos Name(Eng) maydonini to\'ldiring'
-        ]);
-
-        $requestData = $request->all();
-
-        $requestData['slug'] = Str::slug($requestData['name_en']);
-        $tag->update($requestData);
-
+        $this->tagService->update($request, $tag);
         return redirect()->route('admin.tags.index')->with('success', 'Tag Updated successfully!');
 
     }

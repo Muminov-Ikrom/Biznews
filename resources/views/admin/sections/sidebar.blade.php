@@ -33,8 +33,8 @@
 
             <ul class="nav-group-items">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span class="nav-icon"></span> Tags
+                    <a class="nav-link" href="{{ route('admin.posts.index') }}">
+                        <span class="nav-icon"></span> Posts
                     </a>
                 </li>
             </ul>

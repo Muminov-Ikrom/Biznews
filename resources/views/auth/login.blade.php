@@ -10,7 +10,19 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="card-group d-block d-md-flex row">
+
                             <div class="card soya col-md-7 p-4 mb-0">
+                                {{--                            errors code --}}
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                {{--                            erorrs code end--}}
                                 <div class="card-body">
                                     <h1>Login</h1>
                                     <p class="text-medium-emphasis">Sign In to your account</p>

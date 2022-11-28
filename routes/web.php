@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\MainController;
 use App\Http\Controllers\Admin\CategoriesControler;
 use App\Http\Controllers\Admin\TagsController;
+use App\Http\Controllers\Admin\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
     Route::get('dashboard', [MainController::class, 'dashboard'])->name('dashboard');
     Route::resource('categories', CategoriesControler::class);
     Route::resource('tags', TagsController::class);
+    Route::resource('posts', PostsController::class);
 });
 
 

@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container shadow p-3 mb-5 bg-body rounded">
     <div class="d-flex justify-content-end">
         @include('admin.sections.alertmessage')
     </div>
@@ -23,14 +23,14 @@
     </div>
 
 {{--    data tables--}}
-    <table class="table table-striped table-hovered table-bordered mt-3">
+    <table class="table table-striped table-hover">
         <thead>
-            <tr class="bg-secondary">
-                <th>Id</th>
-                <th>Name uz</th>
-                <th>Name en</th>
-                <th>Slug</th>
-                <th>Actions</th>
+            <tr class="border-top-3">
+                <th class="col">Id</th>
+                <th class="col">Name uz</th>
+                <th class="col">Name en</th>
+                <th class="col">Slug</th>
+                <th class="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -40,7 +40,7 @@
                 <td>{{ $category->name_uz }}</td>
                 <td>{{ $category->name_en }}</td>
                 <td>{{ $category->slug }}</td>
-                <td class="d-flex justify-content-around">
+                <td class="d-flex">
                     <a class="btn btn-info" href="{{ route('admin.categories.show', $category->id) }}"><h5 class="bi bi-eye-fill"></h5></a>
                     <a class="btn btn-warning" href="{{ route('admin.categories.edit', $category->id) }}"><h5 class="bi bi-pencil-square"></h5></a>
                     <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
@@ -52,7 +52,7 @@
             </tr>
         @endforeach
         </tbody>
-        <tfoot class="bg-secondary">
+        <tfoot>
             <tr>
                 <th>Id</th>
                 <th>Name uz</th>
